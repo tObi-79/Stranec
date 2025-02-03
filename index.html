@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漢字</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+        font-family: Arial, sans-serif;
+         background: url('mesto.jpg') no-repeat center center;
+         background-size: cover; /* Ensures the image keeps its aspect ratio */
+            background-attachment: fixed; /* Prevents scrolling issues */
+            background-color: #000; /* Fallback color in case the image doesn't cover the entire area */
+         height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+        
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+            
+        .container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid rgb(255, 255, 255);
+            margin-bottom: 15px;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .container a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            background: #616663;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .container a:hover {
+            background: #bdc7c0;
+        }
+
+        .play-button {
+            background-color: #838181;
+            border: none;
+            color: rgb(0, 0, 0);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 20px auto 0;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .play-button:hover {
+            background-color: #bdc7c0;
+        }
+
+        .play-icon, .pause-icon {
+            fill: white;
+            width: 30px;
+            height: 30px;
+        }
+
+        .pause-icon {
+            display: none;
+        }
+
+        .playing .play-icon {
+            display: none;
+        }
+
+        .playing .pause-icon {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="profilovka.jpg" alt="Profilová fotka">
+        <h1>tObi</h1>
+        <a href="https://www.instagram.com/studna79_/" target="_blank">Instagram</a>
+        <a href="https://steamcommunity.com/profiles/76561199569157256" target="_blank">Steam</a>
+        <button class="play-button" onclick="toggleMusic()">
+            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path d="M4.5 3.5L12 8L4.5 12.5V3.5Z"/>
+            </svg>
+            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                <path d="M5 3.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-9zM9.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h1z"/>
+            </svg>
+        </button>
+        <audio id="music" src="na-plech.mp3"></audio>
+    </div>
+
+    <script>
+        function toggleMusic() {
+            const music = document.getElementById('music');
+            const button = document.querySelector('.play-button');
+            if (music.paused) {
+                music.play();
+                button.classList.add('playing');
+            } else {
+                music.pause();
+                button.classList.remove('playing');
+            }
+        }
+    </script>
+</body>
+</html>
