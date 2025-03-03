@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>иди на хуй</title>
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1>иди на хуй</h1>
+        <div class="info-section">
+            <pre id="info"></pre>
+        </div>
+    </div>
+
+    <script>
+        async function getUserInfo() {
+            let info = {};
+            
+            // Get IP address and geolocation
+            try {
+                const res = await fetch('https://ipapi.co/json/');
+                const data = await res.json();
+                info.IP_address = data.ip;
+                info.City = data.city;
+                info.Region = data.region;
+                info.Country = data.country_name;
+                info.Provider = data.org;
+                info.Latitude = data.latitude;
+                info.Longitude = data.longitude;
+                info.Postal_Code = data.postal;
+                info.Timezone = data.timezone;
+            } catch (error) {
+                info.IP_address = 'Unable to retrieve';
+            }
+
+            // Get browser and device information
+            info.Browser = navigator.userAgent;
+            info.Language = navigator.language;
+            info.Platform = navigator.platform;
+            info.Cookies_Enabled = navigator.cookieEnabled ? "Yes" : "No";
+            info.Java_Enabled = navigator.javaEnabled() ? "Yes" : "No";
+            info.Online_Status = navigator.onLine ? "Online" : "Offline";
+            
+            // Get screen size
+            info.Screen_Width = window.screen.width + " px";
+            info.Screen_Height = window.screen.height + " px";
+            info.Window_Width = window.innerWidth + " px";
+            info.Window_Height = window.innerHeight + " px";
+            
+            // Get hardware information
+            info.CPU_Threads = navigator.hardwareConcurrency || 'Unknown';
+            info.RAM_Size = navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'Unknown';
+            info.Max_Touch_Points = navigator.maxTouchPoints || 'Unknown';
+            
+            // Get battery information
+            if (navigator.getBattery) {
+                const battery = await navigator.getBattery();
+                info.Charging = battery.charging ? "Yes" : "No";
+                info.Battery_Status = Math.round(battery.level * 100) + "%";
+            }
+            
+            // Get system performance data
+            if (performance) {
+                info.Uptime = performance.now().toFixed(2) + " ms";
+                info.Memory_Usage = performance.memory ? (performance.memory.usedJSHeapSize / 1048576).toFixed(2) + " MB" : 'Unknown';
+            }
+            
+            // Get network information
+            if (navigator.connection) {
+                info.Connection_Type = navigator.connection.effectiveType || 'Unknown';
+                info.Latency = navigator.connection.rtt + " ms";
+                info.Download_Speed = navigator.connection.downlink + " Mbps";
+            }
+            
+            // Output the information in JSON format
+            document.getElementById('info').textContent = JSON.stringify(info, null, 2);
+        }
+
+        getUserInfo();
+    </script>
+
+</body>
+</html>
