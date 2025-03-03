@@ -1,86 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>иди на хуй</title>
-    
+    <title>Secret Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Background Video -->
+    <video id="background-video" autoplay muted loop>
+        <source src="your-video.mp4" type="video/mp4">
+    </video>
 
-    <div class="container">
-        <h1>иди на хуй</h1>
-        <div class="info-section">
-            <pre id="info"></pre>
+    <!-- Overlay Screen -->
+    <div class="overlay" id="overlay">
+        <div>
+            <h1>Welcome</h1>
+            <p>Click to continue...</p>
         </div>
     </div>
 
-    <script>
-        async function getUserInfo() {
-            let info = {};
-            
-            // Get IP address and geolocation
-            try {
-                const res = await fetch('https://ipapi.co/json/');
-                const data = await res.json();
-                info.IP_address = data.ip;
-                info.City = data.city;
-                info.Region = data.region;
-                info.Country = data.country_name;
-                info.Provider = data.org;
-                info.Latitude = data.latitude;
-                info.Longitude = data.longitude;
-                info.Postal_Code = data.postal;
-                info.Timezone = data.timezone;
-            } catch (error) {
-                info.IP_address = 'Unable to retrieve';
-            }
+    <!-- Main Content Container -->
+    <div class="container" id="content" style="visibility: hidden;">
+        <h1>Your Information</h1>
+        <pre id="info">Loading...</pre>
+    </div>
 
-            // Get browser and device information
-            info.Browser = navigator.userAgent;
-            info.Language = navigator.language;
-            info.Platform = navigator.platform;
-            info.Cookies_Enabled = navigator.cookieEnabled ? "Yes" : "No";
-            info.Java_Enabled = navigator.javaEnabled() ? "Yes" : "No";
-            info.Online_Status = navigator.onLine ? "Online" : "Offline";
-            
-            // Get screen size
-            info.Screen_Width = window.screen.width + " px";
-            info.Screen_Height = window.screen.height + " px";
-            info.Window_Width = window.innerWidth + " px";
-            info.Window_Height = window.innerHeight + " px";
-            
-            // Get hardware information
-            info.CPU_Threads = navigator.hardwareConcurrency || 'Unknown';
-            info.RAM_Size = navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'Unknown';
-            info.Max_Touch_Points = navigator.maxTouchPoints || 'Unknown';
-            
-            // Get battery information
-            if (navigator.getBattery) {
-                const battery = await navigator.getBattery();
-                info.Charging = battery.charging ? "Yes" : "No";
-                info.Battery_Status = Math.round(battery.level * 100) + "%";
+    <script>
+        // Fetch user info
+        async function fetchUserInfo() {
+            try {
+                const response = await fetch('https://ipapi.co/json/'); // Use API to get data
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                return null;
             }
-            
-            // Get system performance data
-            if (performance) {
-                info.Uptime = performance.now().toFixed(2) + " ms";
-                info.Memory_Usage = performance.memory ? (performance.memory.usedJSHeapSize / 1048576).toFixed(2) + " MB" : 'Unknown';
-            }
-            
-            // Get network information
-            if (navigator.connection) {
-                info.Connection_Type = navigator.connection.effectiveType || 'Unknown';
-                info.Latency = navigator.connection.rtt + " ms";
-                info.Download_Speed = navigator.connection.downlink + " Mbps";
-            }
-            
-            // Output the information in JSON format
-            document.getElementById('info').textContent = JSON.stringify(info, null, 2);
         }
 
-        getUserInfo();
+        // Get system information
+        function getUserSystemInfo() {
+            return {
+                browser: navigator.userAgent,
+                platform: navigator.platform,
+                language: navigator.language,
+                cookiesEnabled: navigator.cookieEnabled,
+                screenWidth: screen.width,
+                screenHeight: screen.height,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                cpuCores: navigator.hardwareConcurrency || 'N/A',
+                memory: navigator.deviceMemory ? navigator.deviceMemory + ' GB' : 'N/A',
+                online: navigator.onLine ? 'Yes' : 'No',
+                gpu: getGPUInfo()
+            };
+        }
+
+        // Get GPU info using WebGL
+        function getGPUInfo() {
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (!gl) return 'N/A';
+            const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+            return debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : 'Unknown';
+        }
+
+        // Type out the info
+        function typeInfo(userData, systemData) {
+            const infoContainer = document.getElementById("info");
+            let text = `IP: ${userData.ip}
+Hostname: ${userData.hostname || 'N/A'}
+City: ${userData.city}
+Region: ${userData.region}
+Country: ${userData.country_name}
+Latitude: ${userData.latitude}
+Longitude: ${userData.longitude}
+ISP: ${userData.org || userData.isp || 'N/A'}
+ASN: ${userData.asn || 'N/A'}
+Timezone: ${userData.timezone}
+Postal Code: ${userData.postal || 'N/A'}
+Currency: ${userData.currency || 'N/A'}
+Calling Code: ${userData.country_calling_code || 'N/A'}
+Languages: ${userData.languages || 'N/A'}
+EU Member: ${userData.in_eu ? 'Yes' : 'No'}
+VPN/Proxy: ${userData.security ? userData.security.vpn || userData.security.proxy ? 'Yes' : 'No' : 'Unknown'}
+
+Browser: ${systemData.browser}
+Platform: ${systemData.platform}
+Language: ${systemData.language}
+Cookies Enabled: ${systemData.cookiesEnabled}
+Screen Resolution: ${systemData.screenWidth}x${systemData.screenHeight}
+Timezone: ${systemData.timezone}
+CPU Cores: ${systemData.cpuCores}
+Memory: ${systemData.memory}
+Online: ${systemData.online}
+GPU: ${systemData.gpu}`;
+
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    infoContainer.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 20);
+                }
+            }
+            type();
+        }
+
+        window.onload = function () {
+            const overlay = document.getElementById('overlay');
+            const video = document.getElementById('background-video');
+            const content = document.getElementById('content');
+
+            // Handle overlay click to show the content
+            overlay.addEventListener('click', async function () {
+                overlay.style.opacity = '0';
+                overlay.style.visibility = 'hidden';
+
+                setTimeout(async function () {
+                    content.style.visibility = 'visible';
+                    content.classList.add('page-enter-animation');
+                    video.play();
+
+                    const userInfo = await fetchUserInfo();
+                    const systemInfo = getUserSystemInfo();
+                    if (userInfo) {
+                        typeInfo(userInfo, systemInfo);
+                    }
+                }, 500);
+            });
+
+            // Prevent drag to select text
+            document.addEventListener('dragstart', function (e) {
+                e.preventDefault();
+            });
+        };
     </script>
 
 </body>
