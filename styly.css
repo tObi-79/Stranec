@@ -45,6 +45,8 @@ align-items: center;
     color: rgb(255, 255, 255);
     border-radius: 20px;
     border: 20px;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 .container p {
     margin-bottom: 10px;
