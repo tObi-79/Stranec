@@ -1,4 +1,4 @@
-let baseTitle = "t0bi"; // Your name
+let baseTitle = "t0bi.xyz"; // Your name
 let currentTitle = baseTitle;
 let removing = true; // Start by removing letters
 let index = baseTitle.length;
