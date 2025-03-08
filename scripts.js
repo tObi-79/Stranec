@@ -1,3 +1,23 @@
+let baseTitle = "t0bi"; // Your name
+let currentTitle = baseTitle;
+let removing = true; // Start by removing letters
+let index = baseTitle.length;
+
+function animateTitle() {
+    if (removing) {
+        index--; // Remove letters one by one
+        if (index === 0) removing = false; // Switch to adding letters back
+    } else {
+        index++; // Add letters back one by one
+        if (index === baseTitle.length) removing = true; // Switch to removing again
+    }
+
+    document.title = baseTitle.substring(0, index); // Update title text
+}
+
+setInterval(animateTitle, 700); // Change title every 500ms (adjust speed if needed)
+
+
 document.addEventListener("mousemove", (e) => {
     const container = document.querySelector('.container');
     const mouseX = e.clientX / window.innerWidth - 0.5;
