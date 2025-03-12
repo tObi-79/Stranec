@@ -17,17 +17,18 @@ function animateTitle() {
 
 setInterval(animateTitle, 700); // Change title every 500ms (adjust speed if needed)
 
-
 document.addEventListener("mousemove", (e) => {
     const container = document.querySelector('.container');
     const mouseX = e.clientX / window.innerWidth - 0.5;
     const mouseY = e.clientY / window.innerHeight - 0.5;
 
-    const tiltX = mouseY * 20;
-    const tiltY = -mouseX * 20;
+    // Inverting the tilt direction
+    const tiltX = -mouseY * 25; // Swap sign
+    const tiltY = mouseX * 25;  // Swap sign
 
     container.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const loadingScreen = document.getElementById("loading-screen");
