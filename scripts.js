@@ -62,8 +62,8 @@ addEventListener("mousemove", (event) => {
             const mouseX = mouse.x / window.innerWidth - 0.5;
             const mouseY = mouse.y / window.innerHeight - 0.5;
 
-            const tiltX = -mouseY * 25;
-            const tiltY = mouseX * 25;
+            const tiltX = -mouseY * 15;
+            const tiltY = mouseX * 15;
 
             container.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
             isTiltUpdated = false;
