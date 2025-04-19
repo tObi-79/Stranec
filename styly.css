@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('nejim.jpg') no-repeat center center; backdrop-filter: blur(8px);
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url('cursor.cur'), auto !important;
+}
+
+.container {
+    position: absolute;
+    background: rgba(3, 0, 31, 0.8);
+    color: rgb(255, 255, 255);
+    padding: 50px;
+    border-radius: 20px;
+    
+    width: 500px;
+    opacity: 1; /* Make sure it's fully visible */
+    transform: scale(1); /* Ensure it's not scaled */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+    transition: none; /* No transition to avoid flicker */
+    will-change: transform; /* Optimize for transform property */
+    backdrop-filter: blur(10px);
+}
+
+.container img {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    margin-bottom: 0px;
+    filter: none; /* Remove any filter for now */
+}
+
+.container h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    position: relative;
+    left: 150px;
+    top: -75px;
+    
+    
+}
+.container h2 {
+    position: relative;
+    left: 23px;
+    top: -29px;
+    font-size: 100%;
+}
+.container a {
+    display: inline;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: none; /* Removed hover effect */
+    size: large;
+    position: relative;
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+.show {
+    opacity: 1;
+    transform: scale(1);
+}
+.discord-popup,
+#steam-popup, #github-popup, #instagram-popup, #hippo-popup {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.7);  
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    min-width: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+.social-icon:hover .discord-popup,
+.social-icon.steam:hover #steam-popup,
+.social-icon.github:hover #github-popup,
+.social-icon.instagram:hover #instagram-popup,
+.social-icon.hippo:hover #hippo-popup {
+    opacity: 1;
+    pointer-events: auto;  
+    transform: translateX(-50%) scale(0.9);  
+}
+.social-icon:not(:hover) .discord-popup,
+.social-icon:not(:hover) #steam-popup,
+.social-icon:not(:hover) #github-popup,
+.social-icon:not(:hover) #instagram-popup,
+.social-icon:not(:hover) #hippo-popup {
+    opacity: 0; 
+    transform: translateX(-50%) scale(0.7);  
+}
+
+.social-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: url('cursor.cur'), auto;
+    color: white; 
+    text-decoration: none;
+    white-space: nowrap;
+}
+.socialki {
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    margin-top: 10px;
+    min-width: 10px;
+    position: relative;
+    top: -15px;
+    
+}
+
+html, body {
+    overflow: hidden;
+    min-height: 100vh;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* DISABLE ACTION $$$$$$$$$$$ */
+/* DISABLE ACTION $$$$$$$$$$$ */
+.profile-image,
+.username-wrapper,
+#country, 
+.overlay-content h2 {
+    user-select: none; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+}
