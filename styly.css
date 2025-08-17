@@ -76,7 +76,7 @@ body {
 }
 
 .discord-popup,
-#steam-popup, #github-popup, #instagram-popup, #hippo-popup, #portfolio-popup {
+#steam-popup, #github-popup, #instagram-popup, #hippo-popup, #portfolio-popup, #car-popup {
     position: absolute;
     bottom: calc(100% + 10px);
     left: 50%;
@@ -99,7 +99,8 @@ body {
 .social-icon.github:hover #github-popup,
 .social-icon.instagram:hover #instagram-popup,
 .social-icon.hippo:hover #hippo-popup,
-.social-icon.portfolio:hover #portfolio-popup {
+.social-icon.portfolio:hover #portfolio-popup,
+.social-icon.car:hover #car-popup {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(-50%) scale(0.9);
