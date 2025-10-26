@@ -16,8 +16,57 @@ function animateTitle() {
 
 setInterval(animateTitle, 700);
 
+// Create stars
+function createStars(count) {
+    const starsContainer = document.getElementById('stars');
+    if (!starsContainer) return;
+    
+    // Function to create a single star
+    function createStar() {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random horizontal position
+        star.style.left = `${Math.random() * 100}%`;
+        
+        starsContainer.appendChild(star);
+        
+        // Remove after animation completes
+        setTimeout(() => {
+            star.remove();
+        }, 3000);
+        
+        starsContainer.appendChild(star);
+        
+        // Listen for animation end and remove the star
+        star.addEventListener('animationend', () => {
+            star.remove();
+        });
+    }
+
+    // Create initial batch of stars
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => createStar(), Math.random() * 3000);
+    }
+
+    // Keep creating new stars
+    return setInterval(createStar, 100);
+}
+
+// Wait for DOM to be ready before creating stars
 document.addEventListener("DOMContentLoaded", () => {
+    const starsContainer = document.getElementById('stars');
     const loadingScreen = document.getElementById("loading-screen");
+    const content = document.getElementById("content");
+
+    // Make sure stars container exists
+    if (!starsContainer) {
+        console.error('Stars container not found!');
+        return;
+    }
+
+    // Initialize stars
+    createStars(30);
     const container = document.querySelector(".container");
     const audio = document.getElementById("background-music");
 

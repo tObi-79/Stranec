@@ -4,13 +4,21 @@
     box-sizing: border-box;
 }
 
+/* Star background setup */
+:root {
+    --primary-color: #ffffff;
+    --star-color: var(--primary-color);
+    --star-tail-length: 50px;
+    --star-tail-height: 2px;
+    --fall-duration: 2s;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background: url('auticko.jpg') no-repeat center center;
+    background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%), url('auticko.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
-    background-color: #000;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,6 +26,35 @@ body {
     backdrop-filter: blur(8px);
 }
 
+/* Stars styles */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 10px white;
+    animation: fall 3s linear;
+}
+
+.star::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(white, transparent);
+}
 
 .container {
     position: fixed;
@@ -42,13 +79,13 @@ body {
     font-size: 25px;
     margin-top: 15px;
 }
-.container p {
 
+.container p {
     position: relative;
     margin-top: 20px;
-
 }
 
+/* Social Icons */
 .socialki {
     display: flex;
     justify-content: center;
@@ -75,8 +112,13 @@ body {
     font-size: 1.5rem;
 }
 
+/* Popups */
 .discord-popup,
-#steam-popup, #github-popup, #instagram-popup, #hippo-popup, #portfolio-popup {
+#steam-popup,
+#github-popup,
+#instagram-popup,
+#hippo-popup,
+#portfolio-popup {
     position: absolute;
     bottom: calc(100% + 10px);
     left: 50%;
@@ -94,6 +136,7 @@ body {
     z-index: 10;
 }
 
+/* Hover effects */
 .social-icon:hover .discord-popup,
 .social-icon.steam:hover #steam-popup,
 .social-icon.github:hover #github-popup,
@@ -105,13 +148,14 @@ body {
     transform: translateX(-50%) scale(0.9);
 }
 
+/* Loading Screen */
 #loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: black;
+    background: #000;
     color: white;
     font-size: 2rem;
     display: flex;
@@ -119,4 +163,49 @@ body {
     justify-content: center;
     z-index: 9999;
     cursor: pointer;
+}
+
+/* Stars styles */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: var(--star-size);
+    height: var(--star-size);
+    background: var(--star-color);
+    border-radius: 50%;
+    animation: fall linear infinite;
+    transform-origin: center;
+}
+
+.star::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: var(--star-tail-length);
+    height: 1px;
+    background: linear-gradient(90deg, var(--star-color), transparent);
+    transform: rotate(45deg);
+    transform-origin: right;
+}
+
+/* Animations */
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
 }
