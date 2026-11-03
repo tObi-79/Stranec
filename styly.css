@@ -324,6 +324,7 @@ em {
     height: 40px;
     font-size: 1.05rem;
     color: var(--faint);
+    text-decoration: none;
     background: none;
     border: 1px solid transparent;
     border-radius: 12px;
