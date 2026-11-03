@@ -23,4 +23,9 @@ const PROJEKTY = [
         odkaz: "https://t0bi.dev",
         stitky: ["HTML", "CSS", "JavaScript"],
     },
+    {
+        nazev: "Dobropisy",
+        popis: "webová aplikace na zápis dobropisů",
+        stitky: ["HTML", "CSS", "Postgresql", "Python", "Django"]
+    }
 ];

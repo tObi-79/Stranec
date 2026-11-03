@@ -17,9 +17,9 @@ const discordIcon = document.getElementById("discord-icon");
 discord.addEventListener("click", async () => {
     try {
         await navigator.clipboard.writeText(discord.dataset.username);
-        discordIcon.className = "fa-solid fa-check arrow";
+        discordIcon.className = "fa-solid fa-check";
         showToast("Discord jméno zkopírováno");
-        setTimeout(() => (discordIcon.className = "fa-regular fa-copy arrow"), 1800);
+        setTimeout(() => (discordIcon.className = "fa-brands fa-discord"), 1800);
     } catch {
         showToast(discord.dataset.username);
     }
