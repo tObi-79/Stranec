@@ -24,7 +24,7 @@ const PROJEKTY = [
         stitky: ["HTML", "CSS", "JavaScript"],
     },
     {
-        nazev: "Dobropisy",
+        nazev: "Interní webová aplikace",
         popis: "webová aplikace na zápis dobropisů",
         stitky: ["HTML", "CSS", "Postgresql", "Python", "Django"]
     }
