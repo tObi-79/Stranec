@@ -22,15 +22,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5a16ca069a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styly.css">
+    <script src="projekty.js" defer></script>
     <script src="scripts.js" defer></script>
 </head>
 <body>
-    <div class="bg" aria-hidden="true"></div>
+    <div class="bg" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+    </div>
 
     <main class="card">
         <img class="avatar" src="profilovka.JPG" alt="Profilová fotka t0bi" width="112" height="112">
         <h1 class="name">t0bi</h1>
-        <p class="tagline">Certifikovaný výškový pracovník</p>
+        <p class="tagline">Developer</p>
 
         <nav class="links" aria-label="Odkazy">
             <a class="link" href="https://github.com/tObi-79" target="_blank" rel="noopener">
@@ -51,12 +56,13 @@
         </nav>
     </main>
 
-    <footer class="footer">© <span id="year">2026</span> t0bi.dev</footer>
+    <!-- Projekty se vypisují samy ze souboru projekty.js -->
+    <section class="projects" id="projects" hidden>
+        <h2 class="section-title">Stránky, na kterých jsem dělal</h2>
+        <div class="project-grid" id="project-grid"></div>
+    </section>
 
-    <button class="music" type="button" id="music" aria-label="Pustit hudbu" aria-pressed="false">
-        <i class="fa-solid fa-music"></i>
-    </button>
-    <audio id="background-music" src="wably wigly edit.mp3" preload="none" loop></audio>
+    <footer class="footer">© <span id="year">2026</span> t0bi.dev</footer>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
