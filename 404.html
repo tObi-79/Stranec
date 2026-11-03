@@ -4,24 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 · t0bi</title>
-    <link rel="icon" type="image/png" href="/favicon-16x16.png">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#09090b">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5a16ca069a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styly.css">
+    <style>
+        .notfound {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            min-height: 100svh;
+            padding: 24px 16px;
+        }
+
+        .notfound .cta {
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .notfound .cta > .notfound-code {
+            font-family: var(--mono);
+            font-size: clamp(4rem, 14vw, 6.5rem);
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.06em;
+            background: linear-gradient(120deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 0 0 8px;
+        }
+    </style>
 </head>
 <body>
     <div class="bg" aria-hidden="true">
-        <span class="blob blob-1"></span>
-        <span class="blob blob-2"></span>
-        <span class="blob blob-3"></span>
+        <span class="glow glow-1"></span>
+        <span class="glow glow-2"></span>
     </div>
-    <main class="card">
-        <h1 class="name">404</h1>
-        <p class="tagline">Tahle stránka neexistuje.</p>
-        <nav class="links">
-            <a class="link" href="/"><span>Zpět na t0bi.dev</span></a>
-        </nav>
+
+    <main class="notfound">
+        <div class="cta">
+            <p class="notfound-code">404</p>
+            <h2>Tahle stránka <em>neexistuje.</em></h2>
+            <p>Odkaz je možná starý nebo v něm je překlep.</p>
+            <div class="cta-actions">
+                <a class="btn" href="/"><i class="fa-solid fa-arrow-left"></i> Zpět na t0bi.dev</a>
+            </div>
+        </div>
     </main>
 </body>
 </html>

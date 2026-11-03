@@ -3,76 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>t0bi</title>
-    <meta name="description" content="t0bi — osobní stránka a odkazy na sociální sítě.">
-    <meta name="theme-color" content="#0b0b0f">
+    <title>t0bi — webový vývojář</title>
+    <meta name="description" content="t0bi — navrhuji a programuji weby a webové aplikace v Pythonu a Djangu.">
+    <meta name="theme-color" content="#09090b">
     <link rel="canonical" href="https://t0bi.dev/">
-
-    <!-- Open Graph / sdílení odkazu -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://t0bi.dev/">
-    <meta property="og:title" content="t0bi">
-    <meta property="og:description" content="Osobní stránka a odkazy na sociální sítě.">
+    <meta property="og:title" content="t0bi — webový vývojář">
+    <meta property="og:description" content="Navrhuji a programuji weby a webové aplikace.">
     <meta property="og:image" content="https://t0bi.dev/profilovka.JPG">
-    <meta name="twitter:card" content="summary">
 
-    <link rel="icon" type="image/png" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5a16ca069a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styly.css">
+    <script>document.documentElement.classList.add("js");</script>
     <script src="projekty.js" defer></script>
     <script src="scripts.js" defer></script>
 </head>
 <body>
     <div class="bg" aria-hidden="true">
-        <span class="blob blob-1"></span>
-        <span class="blob blob-2"></span>
-        <span class="blob blob-3"></span>
+        <span class="glow glow-1"></span>
+        <span class="glow glow-2"></span>
     </div>
 
-    <main class="card">
-        <img class="avatar" src="profilovka.JPG" alt="Profilová fotka t0bi" width="112" height="112">
-        <h1 class="name">t0bi</h1>
-        <p class="tagline">Developer</p>
+    <!-- Navigace -->
+    <header class="nav" id="nav">
+        <div class="nav-inner">
+            <a class="logo" href="#top" aria-label="t0bi — domů">
+                <span class="logo-mark">t0</span><span class="logo-text">t0bi</span>
+            </a>
+            <nav class="nav-links" aria-label="Hlavní">
+                <a href="#projekty">Projekty</a>
+                <a href="#sluzby">Co dělám</a>
+                <a href="#o-mne">O mně</a>
+            </nav>
+            <a class="btn btn-small" href="#kontakt">Napiš mi</a>
+        </div>
+    </header>
 
-        <nav class="socials" aria-label="Odkazy">
-            <a class="pill" href="https://github.com/tObi-79" target="_blank" rel="noopener" style="--brand: #f4f4f5">
-                <i class="fa-brands fa-github"></i><span>GitHub</span>
-            </a>
-            <a class="pill" href="https://instagram.com/studna79_" target="_blank" rel="noopener" style="--brand: #e1306c">
-                <i class="fa-brands fa-instagram"></i><span>Instagram</span>
-            </a>
-            <a class="pill" href="https://steamcommunity.com/profiles/76561199569157256/" target="_blank" rel="noopener" style="--brand: #66c0f4">
-                <i class="fa-brands fa-steam"></i><span>Steam</span>
-            </a>
-            <button class="pill" type="button" id="discord" data-username="tobi1096" title="Zkopírovat tobi1096" style="--brand: #5865f2">
-                <i class="fa-brands fa-discord" id="discord-icon"></i><span>Discord</span>
-            </button>
-        </nav>
+    <main id="top">
+        <!-- Úvod -->
+        <section class="hero container">
+            <div class="hero-text">
+                <div class="badge reveal">
+                    <span class="dot"></span> Otevřený novým projektům
+                </div>
+                <h1 class="hero-title reveal">
+                    Navrhuji a stavím weby, které <em>opravdu</em> fungují.
+                </h1>
+                <p class="hero-sub reveal">
+                    Jsem t0bi, webový vývojář. Od rychlých prezentačních stránek
+                    po webové aplikace v Pythonu a Djangu — čistý design,
+                    spolehlivý kód a výsledek, který dobře vypadá na každém zařízení.
+                </p>
+                <div class="hero-actions reveal">
+                    <a class="btn" href="#projekty">Moje projekty <i class="fa-solid fa-arrow-down"></i></a>
+                    <a class="btn btn-ghost" href="#kontakt">Kontakt</a>
+                </div>
+                <div class="hero-socials reveal">
+                    <a href="https://github.com/tObi-79" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://instagram.com/studna79_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://steamcommunity.com/profiles/76561199569157256/" target="_blank" rel="noopener" aria-label="Steam"><i class="fa-brands fa-steam"></i></a>
+                    <button type="button" class="js-discord" data-username="tobi1096" aria-label="Zkopírovat Discord tobi1096"><i class="fa-brands fa-discord"></i></button>
+                </div>
+            </div>
 
-        <!-- O mně: tady si přepiš text podle sebe -->
-        <section class="about">
-            <h2 class="section-title">O mně</h2>
-            <p>
-                Ahoj, jsem tobi. Navrhuji a programuji webové stránky – od jednoduchých 
-                webů až po kompletní webové aplikace s databází a administrací. 
-            </p>
-            <p>
-                Baví mě učit se nové technologie a posouvat každý projekt o kus dál.
-                Pokud máš nápad na web, ozvi se mi. 
-            </p>
+            <!-- Okno editoru -->
+            <div class="editor reveal" aria-hidden="true">
+                <div class="editor-bar">
+                    <span></span><span></span><span></span>
+                    <p>t0bi.js</p>
+                </div>
+<pre class="editor-code"><code><span class="c-num">1</span><span class="c-key">const</span> <span class="c-var">t0bi</span> = {
+<span class="c-num">2</span>  role: <span class="c-str">"Web developer"</span>,
+<span class="c-num">3</span>  stack: [<span class="c-str">"Python"</span>, <span class="c-str">"Django"</span>, <span class="c-str">"JS"</span>],
+<span class="c-num">4</span>  database: <span class="c-str">"PostgreSQL"</span>,
+<span class="c-num">5</span>  focus: [<span class="c-str">"design"</span>, <span class="c-str">"rychlost"</span>],
+<span class="c-num">6</span>  available: <span class="c-bool">true</span>,
+<span class="c-num">7</span>};
+<span class="c-num">8</span>
+<span class="c-num">9</span><span class="c-var">t0bi</span>.<span class="c-fn">build</span>(<span class="c-str">"tvůj další web"</span>);<span class="caret"></span></code></pre>
+            </div>
+        </section>
+
+        <!-- Technologie -->
+        <section class="stack container reveal" aria-label="Technologie">
+            <p class="stack-label">Technologie, se kterými pracuji</p>
+            <ul class="stack-list">
+                <li><i class="fa-brands fa-html5"></i> HTML</li>
+                <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
+                <li><i class="fa-brands fa-js"></i> JavaScript</li>
+                <li><i class="fa-brands fa-python"></i> Python</li>
+                <li><i class="fa-solid fa-leaf"></i> Django</li>
+                <li><i class="fa-solid fa-database"></i> PostgreSQL</li>
+                <li><i class="fa-brands fa-git-alt"></i> Git</li>
+            </ul>
+        </section>
+
+        <!-- Projekty (vypisují se z projekty.js) -->
+        <section class="section container" id="projekty">
+            <div class="section-head reveal">
+                <p class="eyebrow">01 — Projekty</p>
+                <h2>Vybraná práce</h2>
+                <p class="section-sub">Weby a aplikace, na kterých jsem pracoval.</p>
+            </div>
+            <div class="projects" id="project-grid"></div>
+        </section>
+
+        <!-- Služby -->
+        <section class="section container" id="sluzby">
+            <div class="section-head reveal">
+                <p class="eyebrow">02 — Co dělám</p>
+                <h2>S čím ti můžu pomoct</h2>
+            </div>
+            <div class="services">
+                <article class="service spotlight reveal">
+                    <div class="service-icon"><i class="fa-solid fa-display"></i></div>
+                    <h3>Weby na míru</h3>
+                    <p>Moderní prezentační weby a portfolia. Rychlé, přehledné a perfektní na mobilu.</p>
+                </article>
+                <article class="service spotlight reveal">
+                    <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Webové aplikace</h3>
+                    <p>Systémy v Djangu s databází — evidence, formuláře, administrace a interní nástroje.</p>
+                </article>
+                <article class="service spotlight reveal">
+                    <div class="service-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <h3>Rychlost a údržba</h3>
+                    <p>Zrychlení, opravy a vylepšení stávajících webů, aby se načítaly okamžitě.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- O mně -->
+        <section class="section container about" id="o-mne">
+            <div class="about-photo reveal">
+                <img src="profilovka.JPG" alt="t0bi" width="200" height="200">
+            </div>
+            <div class="about-text reveal">
+                <p class="eyebrow">03 — O mně</p>
+                <h2>Ahoj, jsem t0bi.</h2>
+                <p>
+                    Programuji webové stránky a aplikace. Baví mě celý proces — od
+                    prvního návrhu přes čistý kód až po chvíli, kdy web běží
+                    a dělá přesně to, co má.
+                </p>
+                <p>
+                    Záleží mi na detailech: na rychlosti, přístupnosti a tom, aby
+                    se stránka dobře používala na telefonu i na velkém monitoru.
+                    Pořád se učím nové věci a každý projekt chci posunout o kus dál.
+                </p>
+            </div>
+        </section>
+
+        <!-- Kontakt -->
+        <section class="container" id="kontakt">
+            <div class="cta spotlight reveal">
+                <p class="eyebrow">04 — Kontakt</p>
+                <h2>Máš nápad na web?<br><em>já ti v tom pomůžu.</em></h2>
+                <p>Napiš mi, co máš v plánu, a probereme, jak na to.</p>
+                <div class="cta-actions">
+                    <!-- TODO: nastavit přesměrování ahoj@t0bi.dev v Namecheapu -->
+                    <a class="btn" href="mailto:ahoj@t0bi.dev"><i class="fa-regular fa-envelope"></i> ahoj@t0bi.dev</a>
+                    <button type="button" class="btn btn-ghost js-discord" data-username="tobi1096">
+                        <i class="fa-brands fa-discord"></i> tobi1096
+                    </button>
+                </div>
+            </div>
         </section>
     </main>
 
-    <!-- Projekty se vypisují samy ze souboru projekty.js -->
-    <section class="projects" id="projects" hidden>
-        <h2 class="section-title">Stránky, na kterých jsem dělal</h2>
-        <div class="project-grid" id="project-grid"></div>
-    </section>
-
-    <footer class="footer">© <span id="year">2026</span> t0bi.dev</footer>
+    <footer class="footer container">
+        <p>© <span id="year">2026</span> t0bi.dev</p>
+        <a href="#top">Zpět nahoru <i class="fa-solid fa-arrow-up"></i></a>
+    </footer>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
