@@ -3,113 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t0bi</title>
+    <meta name="description" content="t0bi — osobní stránka a odkazy na sociální sítě.">
+    <meta name="theme-color" content="#0b0b0f">
+    <link rel="canonical" href="https://t0bi.dev/">
+
+    <!-- Open Graph / sdílení odkazu -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://t0bi.dev/">
+    <meta property="og:title" content="t0bi">
+    <meta property="og:description" content="Osobní stránka a odkazy na sociální sítě.">
+    <meta property="og:image" content="https://t0bi.dev/profilovka.JPG">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" type="image/png" href="favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5a16ca069a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styly.css">
-    <link rel="icon" type="image/png" href="favicon-16x16.png">
     <script src="scripts.js" defer></script>
-    <script src="stars.js" defer></script>
-    <title>t0bi.xyz</title>
 </head>
 <body>
-    <div id="stars" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;"></div>
-    
-    <!-- Loading Screen -->
-    <div id="loading-screen">₊✩‧₊˚౨ৎ˚₊✩‧₊</div>
+    <div class="bg" aria-hidden="true"></div>
 
-    <!-- Main Content -->
-    <div class="container tilt" id="content" data-tilt style="display: none;">
-        <img src="profilovka.JPG" alt="Profilová fotka">
-        <h1 class="jmeno">t0bi</h1>
+    <main class="card">
+        <img class="avatar" src="profilovka.JPG" alt="Profilová fotka t0bi" width="112" height="112">
+        <h1 class="name">t0bi</h1>
+        <p class="tagline">Certifikovaný výškový pracovník</p>
 
-        <div class="socialki">
-            <!-- Social Icons -->
-            <a href="https://steamcommunity.com/profiles/76561199569157256/" target="_blank" class="social-icon steam" id="steam-icon-container">
-                <i class="fa-brands fa-steam fa-xl"></i>
-                <div id="steam-popup" class="steam-popup"><span>Steam</span></div>
+        <nav class="links" aria-label="Odkazy">
+            <a class="link" href="https://github.com/tObi-79" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i><span>GitHub</span><i class="fa-solid fa-arrow-right arrow ext"></i>
             </a>
-            <a href="https://github.com/tObi-79" target="_blank" class="social-icon github" id="github-icon-container">
-                <i class="fa-brands fa-github fa-xl"></i>
-                <div id="github-popup" class="github-popup"><span>Github</span></div>
+            <a class="link" href="https://instagram.com/studna79_" target="_blank" rel="noopener">
+                <i class="fa-brands fa-instagram"></i><span>Instagram</span><i class="fa-solid fa-arrow-right arrow ext"></i>
             </a>
-            <a href="javascript:void(0);" class="social-icon discord" id="discord-icon-container">
-                <i class="fab fa-discord fa-xl"></i>
-                <div id="discord-popup" class="discord-popup">
-                    <span id="discord-username">tobi1096</span>
-                    <span id="copy-status" style="display: none;">Copied</span>
-                    <span class="copy-icon" id="copy-icon">
-                        <i class="fa-regular fa-copy fa-lg"></i>
-                        <i class="fa-solid fa-copy" style="display: none;"></i>
-                    </span>
-                </div>
+            <a class="link" href="https://steamcommunity.com/profiles/76561199569157256/" target="_blank" rel="noopener">
+                <i class="fa-brands fa-steam"></i><span>Steam</span><i class="fa-solid fa-arrow-right arrow ext"></i>
             </a>
-            <a href="https://instagram.com/studna79_" target="_blank" class="social-icon instagram" id="instagram-icon-container">
-                <i class="fa-brands fa-instagram fa-xl"></i>
-                <div id="instagram-popup" class="instagram-popup"><span>Instagram</span></div>
+            <button class="link" type="button" id="discord" data-username="tobi1096">
+                <i class="fa-brands fa-discord"></i><span>Discord <small>tobi1096</small></span><i class="fa-regular fa-copy arrow" id="discord-icon"></i>
+            </button>
+            <a class="link" href="Nevim/index (1).html">
+                <i class="fa-solid fa-hippo"></i><span>Čus bambus</span><i class="fa-solid fa-arrow-right arrow"></i>
             </a>
-            <a href="Nevim/index (1).html" target="_blank" class="social-icon hippo" id="hippo-icon-container">
-                <i class="fa-solid fa-hippo fa-xl"></i>
-                <div id="hippo-popup" class="hippo-popup"><span>ČUS BAMBUS</span></div>
-            </a>
-            <a href="error/error.html" target="_blank" class="social-icon portfolio" id="portfolio-icon-container">
-                <i class="fa-solid fa-user fa-xl"></i>
-                <div id="portfolio-popup" class="portfolio-popup"><span>Portfolio</span></div>
-            </a>
-            
-        </div>
-        <p>Certifikovany Výškový Pracovník </p>
-    </div>
-    <audio id="background-music" src="wably wigly edit.mp3" preload="metadata" loop></audio>
+        </nav>
+    </main>
+
+    <footer class="footer">© <span id="year">2026</span> t0bi.dev</footer>
+
+    <button class="music" type="button" id="music" aria-label="Pustit hudbu" aria-pressed="false">
+        <i class="fa-solid fa-music"></i>
+    </button>
+    <audio id="background-music" src="wably wigly edit.mp3" preload="none" loop></audio>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
-<div class="stars">
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-</div>
 </html>
