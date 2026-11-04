@@ -761,6 +761,55 @@ a.project:hover .project-link {
     color: var(--muted);
 }
 
+/* Oblast působnosti */
+.area {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.area-card {
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.3s;
+}
+
+.area-card:hover {
+    border-color: var(--border-strong);
+}
+
+.area-card h3 {
+    margin-top: 22px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.area-card > p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.area-places {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+    list-style: none;
+}
+
+.area-places li {
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+
 /* O mně */
 .about {
     display: grid;
@@ -951,7 +1000,8 @@ a.project:hover .project-link {
         display: none;
     }
 
-    .services {
+    .services,
+    .area {
         grid-template-columns: 1fr;
     }
 
