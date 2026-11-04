@@ -883,6 +883,18 @@ a.project:hover .project-link {
     margin-top: 32px;
 }
 
+/* Vtipná poznámka pod e-mailem */
+.cta > p.cta-note {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: var(--faint);
+}
+
+.cta-note strong {
+    color: var(--muted);
+    font-weight: 600;
+}
+
 /* Patička */
 .footer {
     display: flex;
@@ -1000,6 +1012,11 @@ a.project:hover .project-link {
         display: none;
     }
 
+    /* Okno s kódem se na mobilu neukazuje */
+    .editor {
+        display: none;
+    }
+
     .services,
     .area {
         grid-template-columns: 1fr;
@@ -1007,6 +1024,7 @@ a.project:hover .project-link {
 
     .hero {
         padding-top: 112px;
+        padding-bottom: 72px;
     }
 
     .editor-code {
