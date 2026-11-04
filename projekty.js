@@ -21,11 +21,13 @@ const PROJEKTY = [
         nazev: "t0bi.dev",
         popis: "Moje osobní stránka s odkazy na sociální sítě.",
         odkaz: "https://t0bi.dev",
+        obrazek: "projekty/t0bi.dev.jpg",
         stitky: ["HTML", "CSS", "JavaScript"],
     },
     {
         nazev: "Interní webová aplikace",
         popis: "webová aplikace na zápis dobropisů",
+        obrazek: "projekty/dobropisy.jpg",
         stitky: ["HTML", "CSS", "Postgresql", "Python", "Django"]
     }
 ];

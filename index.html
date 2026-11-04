@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>t0bi — webový vývojář</title>
-    <meta name="description" content="t0bi — navrhuji a programuji weby a webové aplikace v Pythonu a Djangu.">
+    <title>t0bi — IT služby a vývoj webů</title>
+    <meta name="description" content="t0bi — IT služby pro lidi, rodiny i firmy: weby a aplikace, opravy počítačů, Wi-Fi a sítě, zálohy a zabezpečení.">
     <meta name="theme-color" content="#09090b">
     <link rel="canonical" href="https://t0bi.dev/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://t0bi.dev/">
-    <meta property="og:title" content="t0bi — webový vývojář">
-    <meta property="og:description" content="Navrhuji a programuji weby a webové aplikace.">
+    <meta property="og:title" content="t0bi — IT služby a vývoj webů">
+    <meta property="og:description" content="Weby a aplikace, počítače, sítě i zabezpečení. IT pomoc pro každého.">
     <meta property="og:image" content="https://t0bi.dev/profilovka.JPG">
 
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -38,8 +38,8 @@
                 <span class="logo-mark">t0</span><span class="logo-text">t0bi</span>
             </a>
             <nav class="nav-links" aria-label="Hlavní">
+                <a href="#sluzby">Služby</a>
                 <a href="#projekty">Projekty</a>
-                <a href="#sluzby">Co dělám</a>
                 <a href="#o-mne">O mně</a>
             </nav>
             <a class="btn btn-small" href="#kontakt">Napiš mi</a>
@@ -51,26 +51,25 @@
         <section class="hero container">
             <div class="hero-text">
                 <div class="badge reveal">
-                    <span class="dot"></span> Otevřený novým projektům
+                    <span class="dot"></span> Pomoc na místě i na dálku
                 </div>
                 <h1 class="hero-title reveal">
-                    Navrhuji a stavím weby, které <em>opravdu</em> fungují.
+                    <!-- Slova se střídají, seznam je v data-words (oddělený |) -->
+                    Zlobí tě <em class="rotator" id="rotator" data-words="počítač?|Wi-Fi?|telefon?|tiskárna?|web?">počítač?</em><br>
+                    Vyřeším to.
                 </h1>
                 <p class="hero-sub reveal">
-                    Jsem t0bi, webový vývojář. Od rychlých prezentačních stránek
-                    po webové aplikace v Pythonu a Djangu — čistý design,
-                    spolehlivý kód a výsledek, který dobře vypadá na každém zařízení.
+                    Opravím, nastavím, naprogramuji. IT pomoc pro lidi, rodiny i firmy.
                 </p>
                 <div class="hero-actions reveal">
-                    <a class="btn" href="#projekty">Moje projekty <i class="fa-solid fa-arrow-down"></i></a>
-                    <a class="btn btn-ghost" href="#kontakt">Kontakt</a>
+                    <a class="btn" href="#kontakt">Chci pomoct <i class="fa-solid fa-arrow-right"></i></a>
+                    <a class="btn btn-ghost" href="#sluzby">Co všechno umím</a>
                 </div>
-                <div class="hero-socials reveal">
-                    <a href="https://github.com/tObi-79" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://instagram.com/studna79_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://steamcommunity.com/profiles/76561199569157256/" target="_blank" rel="noopener" aria-label="Steam"><i class="fa-brands fa-steam"></i></a>
-                    <button type="button" class="js-discord" data-username="tobi1096" aria-label="Zkopírovat Discord tobi1096"><i class="fa-brands fa-discord"></i></button>
-                </div>
+                <ul class="hero-points reveal">
+                    <li><i class="fa-solid fa-check"></i> Lidsky, bez odborných řečí</li>
+                    <li><i class="fa-solid fa-check"></i> Na místě i online</li>
+                    <li><i class="fa-solid fa-check"></i> Od Wi-Fi po weby na míru</li>
+                </ul>
             </div>
 
             <!-- Okno editoru -->
@@ -80,64 +79,80 @@
                     <p>t0bi.js</p>
                 </div>
 <pre class="editor-code"><code><span class="c-num">1</span><span class="c-key">const</span> <span class="c-var">t0bi</span> = {
-<span class="c-num">2</span>  role: <span class="c-str">"Web developer"</span>,
-<span class="c-num">3</span>  stack: [<span class="c-str">"Python"</span>, <span class="c-str">"Django"</span>, <span class="c-str">"JS"</span>],
-<span class="c-num">4</span>  database: <span class="c-str">"PostgreSQL"</span>,
-<span class="c-num">5</span>  focus: [<span class="c-str">"design"</span>, <span class="c-str">"rychlost"</span>],
+<span class="c-num">2</span>  role: <span class="c-str">"IT specialista"</span>,
+<span class="c-num">3</span>  services: [<span class="c-str">"weby"</span>, <span class="c-str">"PC"</span>, <span class="c-str">"sítě"</span>],
+<span class="c-num">4</span>  clients: [<span class="c-str">"lidé"</span>, <span class="c-str">"rodiny"</span>, <span class="c-str">"firmy"</span>],
+<span class="c-num">5</span>  approach: <span class="c-str">"srozumitelně"</span>,
 <span class="c-num">6</span>  available: <span class="c-bool">true</span>,
 <span class="c-num">7</span>};
 <span class="c-num">8</span>
-<span class="c-num">9</span><span class="c-var">t0bi</span>.<span class="c-fn">build</span>(<span class="c-str">"tvůj další web"</span>);<span class="caret"></span></code></pre>
+<span class="c-num">9</span><span class="c-var">t0bi</span>.<span class="c-fn">fix</span>(<span class="c-str">"tvůj problém"</span>);<span class="caret"></span></code></pre>
             </div>
         </section>
 
         <!-- Technologie -->
         <section class="stack container reveal" aria-label="Technologie">
-            <p class="stack-label">Technologie, se kterými pracuji</p>
+            <p class="stack-label">Systémy a technologie, se kterými pracuji</p>
             <ul class="stack-list">
-                <li><i class="fa-brands fa-html5"></i> HTML</li>
-                <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
-                <li><i class="fa-brands fa-js"></i> JavaScript</li>
-                <li><i class="fa-brands fa-python"></i> Python</li>
-                <li><i class="fa-solid fa-leaf"></i> Django</li>
-                <li><i class="fa-solid fa-database"></i> PostgreSQL</li>
-                <li><i class="fa-brands fa-git-alt"></i> Git</li>
+                <li><i class="fa-brands fa-windows"></i> Windows</li>
+                <li><i class="fa-brands fa-apple"></i> macOS a iPhone</li>
+                <li><i class="fa-brands fa-android"></i> Android</li>
+                <li><i class="fa-brands fa-linux"></i> Linux</li>
+                <li><i class="fa-solid fa-wifi"></i> Sítě a Wi-Fi</li>
+                <li><i class="fa-brands fa-python"></i> Python a Django</li>
+                <li><i class="fa-solid fa-code"></i> HTML, CSS a JS</li>
             </ul>
-        </section>
-
-        <!-- Projekty (vypisují se z projekty.js) -->
-        <section class="section container" id="projekty">
-            <div class="section-head reveal">
-                <p class="eyebrow">01 — Projekty</p>
-                <h2>Vybraná práce</h2>
-                <p class="section-sub">Weby a aplikace, na kterých jsem pracoval.</p>
-            </div>
-            <div class="projects" id="project-grid"></div>
         </section>
 
         <!-- Služby -->
         <section class="section container" id="sluzby">
             <div class="section-head reveal">
-                <p class="eyebrow">02 — Co dělám</p>
-                <h2>S čím ti můžu pomoct</h2>
+                <p class="eyebrow">01 — Služby</p>
+                <h2>Pomůžu ti se vším, co má zásuvku.</h2>
+                <p class="section-sub">Pro jednotlivce, rodiny i malé firmy. Na místě i na dálku.</p>
             </div>
             <div class="services">
                 <article class="service spotlight reveal">
-                    <div class="service-icon"><i class="fa-solid fa-display"></i></div>
-                    <h3>Weby na míru</h3>
-                    <p>Moderní prezentační weby a portfolia. Rychlé, přehledné a perfektní na mobilu.</p>
+                    <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Weby a aplikace</h3>
+                    <p>Moderní weby, portfolia a webové aplikace na míru — od vizitky po systém s databází.</p>
                 </article>
                 <article class="service spotlight reveal">
-                    <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
-                    <h3>Webové aplikace</h3>
-                    <p>Systémy v Djangu s databází — evidence, formuláře, administrace a interní nástroje.</p>
+                    <div class="service-icon"><i class="fa-solid fa-laptop"></i></div>
+                    <h3>Počítače a notebooky</h3>
+                    <p>Zrychlení, vyčištění, přeinstalace systému a řešení chyb, které tě zdržují.</p>
                 </article>
                 <article class="service spotlight reveal">
-                    <div class="service-icon"><i class="fa-solid fa-gauge-high"></i></div>
-                    <h3>Rychlost a údržba</h3>
-                    <p>Zrychlení, opravy a vylepšení stávajících webů, aby se načítaly okamžitě.</p>
+                    <div class="service-icon"><i class="fa-solid fa-wifi"></i></div>
+                    <h3>Sítě a Wi-Fi</h3>
+                    <p>Nastavení routeru, lepší pokrytí signálem a připojení tiskáren i dalších zařízení.</p>
+                </article>
+                <article class="service spotlight reveal">
+                    <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Zálohy a bezpečnost</h3>
+                    <p>Pravidelné zálohy fotek a dokumentů, ochrana před viry a bezpečná hesla.</p>
+                </article>
+                <article class="service spotlight reveal">
+                    <div class="service-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h3>Telefony a programy</h3>
+                    <p>Nastavení nového telefonu, přenos dat, e-mail, aplikace a chytrá zařízení.</p>
+                </article>
+                <article class="service spotlight reveal">
+                    <div class="service-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>Poradenství</h3>
+                    <p>Pomůžu vybrat novou techniku a vysvětlím věci tak, aby jim rozuměl každý.</p>
                 </article>
             </div>
+        </section>
+
+        <!-- Projekty (vypisují se z projekty.js) -->
+        <section class="section container" id="projekty">
+            <div class="section-head reveal">
+                <p class="eyebrow">02 — Projekty</p>
+                <h2>Vybraná práce</h2>
+                <p class="section-sub">Weby a aplikace, na kterých jsem pracoval.</p>
+            </div>
+            <div class="projects" id="project-grid"></div>
         </section>
 
         <!-- O mně -->
@@ -149,14 +164,14 @@
                 <p class="eyebrow">03 — O mně</p>
                 <h2>Ahoj, jsem t0bi.</h2>
                 <p>
-                    Programuji webové stránky a aplikace. Baví mě celý proces — od
-                    prvního návrhu přes čistý kód až po chvíli, kdy web běží
-                    a dělá přesně to, co má.
+                    Technika mě baví a rád ji dávám do pořádku. Programuji weby
+                    a aplikace, ale stejně rád pomůžu se zpomaleným notebookem,
+                    nefunkční Wi-Fi nebo nastavením nového telefonu.
                 </p>
                 <p>
-                    Záleží mi na detailech: na rychlosti, přístupnosti a tom, aby
-                    se stránka dobře používala na telefonu i na velkém monitoru.
-                    Pořád se učím nové věci a každý projekt chci posunout o kus dál.
+                    Záleží mi na tom, aby věci fungovaly spolehlivě a abys rozuměl,
+                    co jsem udělal a proč. Žádné zbytečné odborné řeči — jen
+                    řešení, které ti ušetří čas i nervy.
                 </p>
             </div>
         </section>
@@ -165,14 +180,11 @@
         <section class="container" id="kontakt">
             <div class="cta spotlight reveal">
                 <p class="eyebrow">04 — Kontakt</p>
-                <h2>Máš nápad na web?<br><em>já ti v tom pomůžu.</em></h2>
-                <p>Napiš mi, co máš v plánu, a probereme, jak na to.</p>
+                <h2>Potřebuješ pomoct s technikou?<br><em>Já ti v tom pomůžu.</em></h2>
+                <p>Napiš mi, s čím potřebuješ poradit, a domluvíme se, jak na to.</p>
                 <div class="cta-actions">
-                    <!-- TODO: nastavit přesměrování ahoj@t0bi.dev v Namecheapu -->
-                    <a class="btn" href="mailto:ahoj@t0bi.dev"><i class="fa-regular fa-envelope"></i> info@t0bi.dev</a>
-                    <button type="button" class="btn btn-ghost js-discord" data-username="tobi1096">
-                        <i class="fa-brands fa-discord"></i> tobi1096
-                    </button>
+                    <!-- TODO: nastavit přesměrování info@t0bi.dev v Namecheapu -->
+                    <a class="btn" href="mailto:info@t0bi.dev"><i class="fa-regular fa-envelope"></i> info@t0bi.dev</a>
                 </div>
             </div>
         </section>
@@ -180,6 +192,12 @@
 
     <footer class="footer container">
         <p>© <span id="year">2026</span> t0bi.dev</p>
+        <div class="hero-socials">
+            <a href="https://github.com/tObi-79" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://instagram.com/studna79_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://steamcommunity.com/profiles/76561199569157256/" target="_blank" rel="noopener" aria-label="Steam"><i class="fa-brands fa-steam"></i></a>
+            <button type="button" class="js-discord" data-username="tobi1096" aria-label="Zkopírovat Discord tobi1096"><i class="fa-brands fa-discord"></i></button>
+        </div>
         <a href="#top">Zpět nahoru <i class="fa-solid fa-arrow-up"></i></a>
     </footer>
 

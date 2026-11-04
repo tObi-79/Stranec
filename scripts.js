@@ -142,3 +142,20 @@ navLinks.forEach((link) => {
     const section = document.querySelector(link.getAttribute("href"));
     if (section) sectionObserver.observe(section);
 });
+
+// Střídání frází v hlavním nadpisu
+const rotator = document.getElementById("rotator");
+
+if (rotator && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const words = rotator.dataset.words.split("|");
+    let index = 0;
+
+    setInterval(() => {
+        rotator.classList.add("out");
+        setTimeout(() => {
+            index = (index + 1) % words.length;
+            rotator.textContent = words[index];
+            rotator.classList.remove("out");
+        }, 350);
+    }, 2600);
+}
