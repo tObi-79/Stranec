@@ -159,3 +159,94 @@ if (rotator && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
         }, 350);
     }, 2600);
 }
+
+// Ukázky konverzací v okně vedle nadpisu; postupně se „píšou“ a střídají
+const KONVERZACE = [
+    {
+        jmeno: "Jana", barvy: ["#fde68a", "#f9a8d4"], cas: "9:41",
+        zprava: "Ahoj, notebook se mi strašně zpomalil a nejde mi tisknout 😕",
+        odpoved: "Ahoj! Zastavím se zítra odpoledne a dám to do pořádku.",
+        hotovo: ["Notebook vyčištěný a zrychlený", "Tiskárna zase tiskne", "Fotky se samy zálohují"],
+    },
+    {
+        jmeno: "Petr", barvy: ["#a7f3d0", "#93c5fd"], cas: "18:05",
+        zprava: "V obýváku skoro nejde Wi-Fi a v dětském pokoji vůbec.",
+        odpoved: "To spravíme. Hodí se ti čtvrtek? Mrknu na router i pokrytí.",
+        hotovo: ["Router správně nastavený", "Signál v celém bytě", "Nové bezpečné heslo"],
+    },
+    {
+        jmeno: "Marie", barvy: ["#fecaca", "#fdba74"], cas: "10:12",
+        zprava: "Koupila jsem nový telefon a nevím, jak přenést fotky a kontakty.",
+        odpoved: "V pohodě, přenesu všechno a ukážu vám, jak na to.",
+        hotovo: ["Fotky i kontakty přenesené", "WhatsApp funguje jako dřív", "Automatická záloha do cloudu"],
+    },
+    {
+        jmeno: "Lenka", barvy: ["#ddd6fe", "#f0abfc"], cas: "14:30",
+        zprava: "Potřebovala bych jednoduchý web pro svoje kadeřnictví.",
+        odpoved: "Jasně! Do pár dnů ti pošlu první návrh.",
+        hotovo: ["Web je online", "Skvěle vypadá na mobilu", "Vlastní doména a e-mail"],
+    },
+    {
+        jmeno: "Tomáš", barvy: ["#bae6fd", "#c4b5fd"], cas: "20:47",
+        zprava: "Na počítači mi vyskočilo varování před virem a chce po mně platbu!",
+        odpoved: "Nic neplať a na nic neklikej, hned se na to podívám.",
+        hotovo: ["Škodlivý program odstraněný", "Ochrana nastavená", "Žádná data se neztratila"],
+    },
+];
+
+function renderChat(chat, k) {
+    const zprava = el("div", "msg msg-in chat-step");
+    const avatar = el("span", "avatar", k.jmeno[0]);
+    avatar.style.background = `linear-gradient(135deg, ${k.barvy[0]}, ${k.barvy[1]})`;
+    const zpravaText = el("div");
+    zpravaText.append(el("p", "bubble", k.zprava), el("p", "time", `${k.jmeno} · ${k.cas}`));
+    zprava.append(avatar, zpravaText);
+
+    const pise = el("div", "msg msg-out chat-step");
+    const tecky = el("p", "bubble typing");
+    tecky.append(el("span"), el("span"), el("span"));
+    pise.append(tecky);
+
+    const odpoved = el("div", "msg msg-out chat-step");
+    const odpovedText = el("div");
+    odpovedText.append(el("p", "bubble", k.odpoved), el("p", "time", "t0bi · hned"));
+    odpoved.append(odpovedText);
+
+    const hotovo = el("div", "done chat-step");
+    const titulek = el("p", "done-title");
+    titulek.append(el("i", "fa-solid fa-circle-check"), " Hotovo");
+    const seznam = el("ul");
+    k.hotovo.forEach((bod) => {
+        const li = el("li");
+        li.append(el("i", "fa-solid fa-check"), ` ${bod}`);
+        seznam.append(li);
+    });
+    hotovo.append(titulek, seznam);
+
+    chat.replaceChildren(zprava, pise, odpoved, hotovo);
+    return { zprava, pise, odpoved, hotovo };
+}
+
+const chat = document.getElementById("chat");
+
+if (chat && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let index = 0;
+
+    const play = () => {
+        chat.classList.add("fade");
+        setTimeout(() => {
+            index = (index + 1) % KONVERZACE.length;
+            const kroky = renderChat(chat, KONVERZACE[index]);
+            chat.classList.remove("fade");
+            setTimeout(() => kroky.zprava.classList.add("show"), 150);
+            setTimeout(() => kroky.pise.classList.add("show"), 1100);
+            setTimeout(() => {
+                kroky.pise.remove();
+                kroky.odpoved.classList.add("show");
+            }, 2300);
+            setTimeout(() => kroky.hotovo.classList.add("show"), 3300);
+        }, 400);
+    };
+
+    setInterval(play, 8000);
+}

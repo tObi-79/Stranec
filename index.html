@@ -97,21 +97,36 @@
                 </ul>
             </div>
 
-            <!-- Okno editoru -->
+            <!-- Ukázka, jak to probíhá: zpráva od zákazníka, odpověď a výsledek -->
             <div class="editor reveal" aria-hidden="true">
                 <div class="editor-bar">
                     <span></span><span></span><span></span>
-                    <p>t0bi.js</p>
+                    <p>Zprávy · ukázka</p>
                 </div>
-<pre class="editor-code"><code><span class="c-num">1</span><span class="c-key">const</span> <span class="c-var">t0bi</span> = {
-<span class="c-num">2</span>  role: <span class="c-str">"IT specialista"</span>,
-<span class="c-num">3</span>  services: [<span class="c-str">"weby"</span>, <span class="c-str">"PC"</span>, <span class="c-str">"sítě"</span>],
-<span class="c-num">4</span>  clients: [<span class="c-str">"lidé"</span>, <span class="c-str">"rodiny"</span>, <span class="c-str">"firmy"</span>],
-<span class="c-num">5</span>  approach: <span class="c-str">"srozumitelně"</span>,
-<span class="c-num">6</span>  available: <span class="c-bool">true</span>,
-<span class="c-num">7</span>};
-<span class="c-num">8</span>
-<span class="c-num">9</span><span class="c-var">t0bi</span>.<span class="c-fn">fix</span>(<span class="c-str">"tvůj problém"</span>);<span class="caret"></span></code></pre>
+                <!-- Konverzace se střídají, seznam je v KONVERZACE ve scripts.js -->
+                <div class="chat" id="chat">
+                    <div class="msg msg-in chat-step show">
+                        <span class="avatar">J</span>
+                        <div>
+                            <p class="bubble">Ahoj, notebook se mi strašně zpomalil a nejde mi tisknout 😕</p>
+                            <p class="time">Jana · 9:41</p>
+                        </div>
+                    </div>
+                    <div class="msg msg-out chat-step show">
+                        <div>
+                            <p class="bubble">Ahoj! Zastavím se zítra odpoledne a dám to do pořádku.</p>
+                            <p class="time">t0bi · hned</p>
+                        </div>
+                    </div>
+                    <div class="done chat-step show">
+                        <p class="done-title"><i class="fa-solid fa-circle-check"></i> Hotovo</p>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> Notebook vyčištěný a zrychlený</li>
+                            <li><i class="fa-solid fa-check"></i> Tiskárna zase tiskne</li>
+                            <li><i class="fa-solid fa-check"></i> Fotky se samy zálohují</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
